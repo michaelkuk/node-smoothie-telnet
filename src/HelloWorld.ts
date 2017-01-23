@@ -1,10 +1,10 @@
 export class HelloWorld {
 
     public say(): string {
-        return "hello, world!";
+        return "hello, world!"
     }
 
     public dontSay(): void {
-        console.log("silence");
+        console.log("silence")
     }
 }

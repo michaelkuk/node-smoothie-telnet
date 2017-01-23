@@ -4,7 +4,7 @@
   "description": "Node.js TypeScript Project Seed",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,7 @@
   "homepage": "https://github.com/zetta-michaelkuk/node-ts-seed#readme",
   "devDependencies": {
     "@types/chai": "^3.4.34",
+    "@types/chai-as-promised": "0.0.29",
     "@types/mocha": "^2.2.38",
     "@types/node": "^6.0.61",
     "@types/sinon": "^1.16.34",
@@ -28,7 +29,6 @@
     "gulp-connect": "^5.0.0",
     "gulp-istanbul": "^1.1.1",
     "gulp-mocha": "^3.0.1",
-    "gulp-open": "^2.0.0",
     "gulp-sourcemaps": "^2.4.0",
     "gulp-tslint": "^7.0.1",
     "gulp-typescript": "^3.1.4",

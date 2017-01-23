@@ -7,6 +7,7 @@ const
     path = require('path'),
     del = require('del'),
     typescript = require('gulp-typescript'),
+    tslint = require('gulp-tslint'),
     sourcemaps = require('gulp-sourcemaps'),
     connect = require('gulp-connect'),
     istanbul = require('gulp-istanbul'),
@@ -78,10 +79,18 @@ gulp.task('test:remap', ['test:run'], () => {
         }))
 })
 
+gulp.task('test:style-guide', () => {
+    return gulp.src([paths.src, paths.spec])
+        .pipe(tslint({
+            configuration: "tslint.json"
+        }))
+        .pipe(tslint.report())
+})
+
 gulp.task('test', ['test:precompile-spec', 'test:precompile-sources', 'test:instrument', 'test:run', 'test:remap'])
 
 gulp.task('watch:tests', () => {
-    gulp.watch([paths.src, paths.spec], ['test', 'coverage:live-reload'])
+    gulp.watch([paths.src, paths.spec], ['test', 'test:style-guide', 'coverage:live-reload'])
 })
 
 gulp.task('coverage:server', ['test'], () => {
@@ -116,4 +125,4 @@ gulp.task('build', () => {
         .pipe(gulp.dest(path.join('dist', 'src')))
 })
 
-gulp.task('default', ['test', 'coverage:server', 'coverage:open', 'watch'])
+gulp.task('default', ['test', 'coverage:server', 'coverage:open', 'watch', 'test:style-guide'])
