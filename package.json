@@ -1,0 +1,41 @@
+{
+  "name": "node-ts-seed",
+  "version": "0.1.0",
+  "description": "Node.js TypeScript Project Seed",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zetta-michaelkuk/node-ts-seed.git"
+  },
+  "author": "Michael Kuk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zetta-michaelkuk/node-ts-seed/issues"
+  },
+  "homepage": "https://github.com/zetta-michaelkuk/node-ts-seed#readme",
+  "devDependencies": {
+    "@types/chai": "^3.4.34",
+    "@types/mocha": "^2.2.38",
+    "@types/node": "^6.0.61",
+    "@types/sinon": "^1.16.34",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-istanbul": "^1.1.1",
+    "gulp-mocha": "^3.0.1",
+    "gulp-open": "^2.0.0",
+    "gulp-sourcemaps": "^2.4.0",
+    "gulp-tslint": "^7.0.1",
+    "gulp-typescript": "^3.1.4",
+    "opn": "^4.0.2",
+    "remap-istanbul": "^0.8.4",
+    "sinon": "^1.17.7",
+    "tslint": "^4.3.1",
+    "typescript": "^2.1.5"
+  }
+}
