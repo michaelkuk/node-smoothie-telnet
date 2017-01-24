@@ -32,6 +32,7 @@
     "gulp-sourcemaps": "^2.4.0",
     "gulp-tslint": "^7.0.1",
     "gulp-typescript": "^3.1.4",
+    "mocha": "^3.2.0",
     "opn": "^4.0.2",
     "remap-istanbul": "^0.8.4",
     "sinon": "^1.17.7",
