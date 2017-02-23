@@ -6,7 +6,7 @@ const
     opn = require('opn'),
     path = require('path'),
     del = require('del'),
-    typescript = require('gulp-typescript'),
+    typescript = require('gulp-typescript').createProject('tsconfig.json'),
     tslint = require('gulp-tslint'),
     sourcemaps = require('gulp-sourcemaps'),
     connect = require('gulp-connect'),
@@ -32,25 +32,15 @@ gulp.task('clean:coverage', () => {
 gulp.task('test:precompile-sources', ['clean:temp'], () => {
     return gulp.src(paths.src)
         .pipe(sourcemaps.init())
-        .pipe(typescript({
-            module: 'commonjs',
-            noImplicitAny: true,
-            target: 'es6',
-            moduleResolution: 'node'
-        }))
+        .pipe(typescript())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.join(paths.temp, 'src')))
 })
 
-gulp.task('test:precompile-spec', ['clean:temp'], () => {
+gulp.task('test:precompile-spec', ['clean:temp', 'test:precompile-sources'], () => {
     return gulp.src(paths.spec)
         .pipe(sourcemaps.init())
-        .pipe(typescript({
-            module: 'commonjs',
-            noImplicitAny: true,
-            target: 'es6',
-            moduleResolution: 'node'
-        }))
+        .pipe(typescript())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.join(paths.temp, 'spec')))
 })
@@ -115,12 +105,7 @@ gulp.task('watch', ['watch:tests'])
 gulp.task('build', () => {
     return gulp.src(paths.src)
         .pipe(sourcemaps.init())
-        .pipe(typescript({
-            module: 'commonjs',
-            noImplicitAny: true,
-            target: 'es5',
-            moduleResolution: 'node'
-        }))
+        .pipe(typescript())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.join('dist', 'src')))
 })
